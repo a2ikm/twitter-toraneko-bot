@@ -3,7 +3,7 @@ module Lita
     class MewBack < Handler
       route /にゃー/, :reply
 
-      def replay(response)
+      def reply(response)
         text = [
           mention(response),
           body,

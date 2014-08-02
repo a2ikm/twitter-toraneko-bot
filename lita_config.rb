@@ -3,6 +3,10 @@ if ENV['RACK_ENV'] !='production'
   Dotenv.load
 end
 
+Dir[File.expand_path("../handlers/*.rb", __FILE__)].each do |file|
+  require file
+end
+
 Lita.configure do |config|
   config.robot.name       = 'toraneko_bot_'
   config.robot.adapter    = :twitter
@@ -15,8 +19,4 @@ Lita.configure do |config|
   config.adapter.api_secret          = ENV['API_SECRET']
   config.adapter.access_token        = ENV['ACCESS_TOKEN']
   config.adapter.access_token_secret = ENV['ACCESS_TOKEN_SECRET']
-end
-
-Dir[File.expand_path("../handlers/*.rb", __FILE__)].each do |file|
-  require file
 end

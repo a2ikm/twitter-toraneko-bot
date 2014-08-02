@@ -10,7 +10,7 @@ end
 Lita.configure do |config|
   config.robot.name       = 'toraneko_bot_'
   config.robot.adapter    = :twitter
-  config.robot.log_level  = :info
+  config.robot.log_level  = :debug
 
   config.redis.url = ENV["REDISTOGO_URL"]
   config.http.port = ENV["PORT"]

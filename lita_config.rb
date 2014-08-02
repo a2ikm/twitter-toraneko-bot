@@ -20,3 +20,7 @@ Lita.configure do |config|
   config.handlers.schedules.should_sleep_at   = '0 0 * * * Asia/Tokyo'
   config.handlers.schedules.should_wake_up_at = '0 8 * * * Asia/Tokyo'
 end
+
+Dir[File.expand_path("../handlers/*.rb", __FILE__)].each do |file|
+  require file
+end

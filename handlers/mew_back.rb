@@ -1,12 +1,12 @@
 module Lita
   module Handlers
-    class Mew < Handler
-      route /にゃー/, :mew
+    class MewBack < Handler
+      route /にゃー/, :reply
 
-      def mew(response)
+      def replay(response)
         text = [
-          reply_to(response),
-          make_body
+          mention(response),
+          body,
         ].compact.join(" ")
 
         response.reply text
@@ -14,11 +14,11 @@ module Lita
 
       private
 
-        def reply_to(response)
-          "@#{response.user.name}" if response.user.metadata["mention"]
+        def mention(response)
+          "@#{response.user.name}"
         end
 
-        def make_body
+        def body
           %w(
             にゃー
             にゃーん
@@ -27,11 +27,10 @@ module Lita
             ﾆｬｰﾝ
             ﾆｬｱｱﾝ
             ﾌｰｯ
-            zzz...
             !?
           ).sample
         end
     end
-    Lita.register_handler(Mew)
+    Lita.register_handler(MewBack)
   end
 end

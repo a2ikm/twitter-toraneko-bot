@@ -69,3 +69,4 @@ DEPENDENCIES
   dotenv
   lita
   lita-twitter
+  twitter

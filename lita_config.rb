@@ -4,8 +4,8 @@ if ENV['RACK_ENV'] !='production'
 end
 
 Lita.configure do |config|
-  config.robot.name       = ENV["BOT_NAME"] || 'lita'
-  config.robot.adapter    = ENV["ADAPTER"] ? ENV["ADAPTER"].to_sym : :shell
+  config.robot.name       = 'toraneko_bot_'
+  config.robot.adapter    = :twitter
   config.robot.log_level  = :info
 
   config.redis.url = ENV["REDISTOGO_URL"]

@@ -1,3 +1,5 @@
+require "yaml"
+
 module Lita
   module Handlers
     class MewBack < Handler
@@ -18,17 +20,10 @@ module Lita
           "@#{response.user.name}"
         end
 
+        MESSAGES = YAML.load_file("../../messages.yml", __FILE__)["mew_back"]
+
         def body
-          %w(
-            にゃー
-            にゃーん
-            にゃあああん
-            ﾆｬｰ
-            ﾆｬｰﾝ
-            ﾆｬｱｱﾝ
-            ﾌｰｯ
-            !?
-          ).sample
+          MESSAGES.sample
         end
     end
     Lita.register_handler(MewBack)

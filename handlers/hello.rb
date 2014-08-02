@@ -1,7 +1,7 @@
 module Lita
   module Handlers
     class Hello < Handler
-      route /^hello\s+(\S.*)+/, :hello
+      route /^hello/, :hello
 
       def hello(response)
         response.reply "Hello, world!"

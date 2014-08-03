@@ -21,6 +21,8 @@ module Lita
           mention(response),
           MESSAGES["cute_me"].sample,
         ].compact.join(" ")
+
+        response.reply text
       end
 
       private

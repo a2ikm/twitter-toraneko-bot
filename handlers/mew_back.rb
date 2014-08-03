@@ -3,12 +3,12 @@ require "yaml"
 module Lita
   module Handlers
     class MewBack < Handler
-      route /にゃー|ニャー|ﾆｬｰ/, :reply
+      route /にゃー|ニャー|ﾆｬｰ/, :mew
 
-      def reply(response)
+      def mew(response)
         text = [
           mention(response),
-          body,
+          MESSAGES["mew"].sample,
         ].compact.join(" ")
 
         response.reply text
@@ -18,12 +18,6 @@ module Lita
 
         def mention(response)
           "@#{response.user.name}"
-        end
-
-        MESSAGES = YAML.load_file(File.expand_path("../../messages.yml", __FILE__))["mew_back"]
-
-        def body
-          MESSAGES.sample
         end
     end
     Lita.register_handler(MewBack)

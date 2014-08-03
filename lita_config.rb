@@ -3,6 +3,8 @@ if ENV['RACK_ENV'] !='production'
   Dotenv.load
 end
 
+MESSAGES = YAML.load_file(File.expand_path("../../messages.yml", __FILE__))
+
 Dir[File.expand_path("../handlers/*.rb", __FILE__)].each do |file|
   require file
 end

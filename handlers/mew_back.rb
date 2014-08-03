@@ -20,10 +20,8 @@ module Lita
           "@#{response.user.name}"
         end
 
-        MESSAGES = YAML.load_file(File.expand_path("../../messages.yml", __FILE__))["mew_back"]
-
         def body
-          MESSAGES.sample
+          MESSAGES["mew_back"].sample
         end
     end
     Lita.register_handler(MewBack)

@@ -14,6 +14,15 @@ module Lita
         response.reply text
       end
 
+      route /可愛い|かわいい|カワイイ|ｶﾜｲｲ/, :cute_me
+
+      def cute_me(response)
+        text = [
+          mention(response),
+          MESSAGES["cute_me"].sample,
+        ].compact.join(" ")
+      end
+
       private
 
         def mention(response)

@@ -3,7 +3,7 @@ require "yaml"
 module Lita
   module Handlers
     class MewBack < Handler
-      route /にゃー/, :reply
+      route /にゃー|ニャー|ﾆｬｰ/, :reply
 
       def reply(response)
         text = [

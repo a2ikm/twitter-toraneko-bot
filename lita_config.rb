@@ -10,6 +10,7 @@ Dir[File.expand_path("../extensions/*.rb", __FILE__)].each do |file|
 end
 
 Lita.deregister_handler(Lita::Handlers::Help)
+Lita.deregister_handler(Lita::Handlers::Info)
 
 Dir[File.expand_path("../handlers/*.rb", __FILE__)].each do |file|
   require file

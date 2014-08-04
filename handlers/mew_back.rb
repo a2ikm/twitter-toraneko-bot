@@ -33,6 +33,18 @@ module Lita
         response.reply text
       end
 
+      route /^help/, :help
+      def help(response)
+        return unless response.user.metadata["mention"]
+
+        text = [
+          mention(response),
+          MESSAGES["help"].sample,
+        ].compact.join(" ")
+
+        response.reply text
+      end
+
       private
 
         def mention(response)

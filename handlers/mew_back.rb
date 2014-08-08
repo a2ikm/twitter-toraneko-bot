@@ -3,7 +3,7 @@ require "yaml"
 module Lita
   module Handlers
     class MewBack < Handler
-      route /にゃ[ー〜]|ニャ[ー〜]|ﾆｬ[ｰ~]/, :mew
+      route /にゃ[ー〜]|ニャ[ー〜]|ﾆｬ[ｰ~]|にゃん|ニャン|ﾆｬﾝ/, :mew
       def mew(response)
         response.reply_with_mention MESSAGES["mew"].sample
       end

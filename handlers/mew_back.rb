@@ -18,6 +18,18 @@ module Lita
         response.reply_with_mention MESSAGES["angry"].sample
       end
 
+      route /なんなん/, :nyannyan
+      def nyannyan(response)
+        messages = [
+          "にゃんにゃん！",
+          "ニャンニャン！",
+          "ﾆｬﾝﾆｬﾝ!",
+          "娘々",
+          "謝々",
+        ]
+        response.reply_with_mention messages.sample
+      end
+
       route /^help/, :help
       def help(response)
         return unless response.user.metadata["mention"]

@@ -28,4 +28,7 @@ Lita.configure do |config|
   config.adapter.api_secret          = ENV['API_SECRET']
   config.adapter.access_token        = ENV['ACCESS_TOKEN']
   config.adapter.access_token_secret = ENV['ACCESS_TOKEN_SECRET']
+
+  config.handlers.schedules.room    = 1
+  config.handlers.schedules.yawn_at = "5,15,25,35,45,55 * * * * Asia/Tokyo"
 end

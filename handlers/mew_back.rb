@@ -45,6 +45,13 @@ module Lita
         response.reply text
       end
 
+      on :unhandled_message, :on_unhandled_message
+      def on_unhandled_message(payload)
+        message = payload[:message]
+        return unless message.user.metadata["mention"]
+        message.reply_with_mention "にゃ〜ん？"
+      end
+
       private
 
         def mention(response)

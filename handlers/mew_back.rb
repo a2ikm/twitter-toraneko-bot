@@ -30,6 +30,22 @@ module Lita
         response.reply_with_mention messages.sample
       end
 
+      route /せやな/, :seyaseya
+      def seyaseya(response)
+        messages = [
+          "せやせや",
+        ]
+        response.reply_with_mention messages.sample
+      end
+
+      route /せやせや/, :seyana
+      def seyana(response)
+        messages = [
+          "せやな",
+        ]
+        response.reply_with_mention messages.sample
+      end
+
       route /^help/, :help
       def help(response)
         return unless response.user.metadata["mention"]

@@ -5,44 +5,23 @@ module Lita
     class MewBack < Handler
       route /にゃ[ー〜]|ニャ[ー〜]|ﾆｬ[ｰ~]/, :mew
       def mew(response)
-        text = [
-          mention(response),
-          MESSAGES["mew"].sample,
-        ].compact.join(" ")
-
-        response.reply text
+        response.reply_with_mention MESSAGES["mew"].sample
       end
 
       route /可愛い|かわいい|カワイイ|ｶﾜｲｲ/, :cute_me
       def cute_me(response)
-        text = [
-          mention(response),
-          MESSAGES["cute_me"].sample,
-        ].compact.join(" ")
-
-        response.reply text
+        response.reply_with_mention MESSAGES["cute_me"].sample
       end
 
       route /[（(]ΦωΦ[)）]/, :angry
       def angry(response)
-        text = [
-          mention(response),
-          MESSAGES["angry"].sample,
-        ].compact.join(" ")
-
-        response.reply text
+        response.reply_with_mention MESSAGES["angry"].sample
       end
 
       route /^help/, :help
       def help(response)
         return unless response.user.metadata["mention"]
-
-        text = [
-          mention(response),
-          MESSAGES["help"].sample,
-        ].compact.join(" ")
-
-        response.reply text
+        response.reply_with_message MESSAGES["help"].sample
       end
 
       on :unhandled_message, :on_unhandled_message

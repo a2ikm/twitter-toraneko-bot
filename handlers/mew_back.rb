@@ -54,6 +54,14 @@ module Lita
         response.reply_with_mention messages.sample
       end
 
+      route /よしよし|ヨシヨシ|ﾖｼﾖｼ|なでなで|ナデナデ|ﾅﾃﾞﾅﾃﾞ/, :curr
+      def curr(response)
+        messages = [
+          "ｺﾞﾛｺﾞﾛ",
+        ]
+        response.reply_with_mention messages.sample
+      end
+
       route /^help/, :help
       def help(response)
         return unless response.user.metadata["mention"]

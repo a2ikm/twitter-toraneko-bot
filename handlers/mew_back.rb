@@ -46,6 +46,14 @@ module Lita
         response.reply_with_mention messages.sample
       end
 
+      route /せやろか/, :seyaroka
+      def seyaroka(response)
+        messages = [
+          "せやで",
+        ]
+        response.reply_with_mention messages.sample
+      end
+
       route /縄/, :comeon!
       def comeon!(response)
         messages = [

@@ -35,6 +35,7 @@ module Lita
         messages = [
           "せやせや",
           "せやろか",
+          "ちゃうで",
         ]
         response.reply_with_mention messages.sample
       end
@@ -44,6 +45,7 @@ module Lita
         messages = [
           "せやな",
           "せやろか",
+          "ちゃうで",
         ]
         response.reply_with_mention messages.sample
       end
@@ -53,6 +55,7 @@ module Lita
         messages = [
           "せやで",
           "せやせや",
+          "ちゃうで",
         ]
         response.reply_with_mention messages.sample
       end
@@ -60,9 +63,10 @@ module Lita
       route /せやで/, :seyade
       def seyade(response)
         messages = [
+          "せやな",
           "せやせや",
           "せやろか",
-          "せやろか",
+          "ちゃうで",
         ]
         response.reply_with_mention messages.sample
       end
@@ -77,12 +81,23 @@ module Lita
         response.reply_with_mention messages.sample
       end
 
-      route /ちゃうん?ちゃう/, :chauchau
+      route /ちゃうんちゃう/, :chauchau
       def chauchau(response)
         messages = [
           "せやろか",
+          "せやせや",
+          "せやな",
         ]
         response.reply_with_mention messages.sample
+      end
+
+      route /ちゃうで/, :chaude
+      def chaude(response)
+        messages = [
+          "せやろか",
+          "せやせや",
+          "せやな",
+        ]
       end
 
       route /縄/, :comeon!

@@ -34,6 +34,7 @@ module Lita
       def seyaseya(response)
         messages = [
           "せやせや",
+          "せやろか",
         ]
         response.reply_with_mention messages.sample
       end
@@ -42,6 +43,7 @@ module Lita
       def seyana(response)
         messages = [
           "せやな",
+          "せやろか",
         ]
         response.reply_with_mention messages.sample
       end
@@ -50,6 +52,17 @@ module Lita
       def seyaroka(response)
         messages = [
           "せやで",
+          "せやせや",
+        ]
+        response.reply_with_mention messages.sample
+      end
+
+      route /せやかて/, :seyakate
+      def seyakate(response)
+        return if rand(100) < 10
+
+        messages = [
+          "工藤",
         ]
         response.reply_with_mention messages.sample
       end

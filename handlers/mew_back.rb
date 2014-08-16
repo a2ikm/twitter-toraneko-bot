@@ -77,6 +77,14 @@ module Lita
         response.reply_with_mention messages.sample
       end
 
+      route /ちゃうん?ちゃう/, :chauchau
+      def chauchau(response)
+        messages = [
+          "せやろか",
+        ]
+        response.reply_with_mention messages.sample
+      end
+
       route /縄/, :comeon!
       def comeon!(response)
         messages = [

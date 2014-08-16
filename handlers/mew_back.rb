@@ -57,6 +57,16 @@ module Lita
         response.reply_with_mention messages.sample
       end
 
+      route /せやで/, :seyade
+      def seyade(response)
+        messages = [
+          "せやせや",
+          "せやろか",
+          "せやろか",
+        ]
+        response.reply_with_mention messages.sample
+      end
+
       route /せやかて/, :seyakate
       def seyakate(response)
         return if rand(100) < 10

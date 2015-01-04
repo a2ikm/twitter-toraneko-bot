@@ -138,7 +138,7 @@ module Lita
       route /^help/, :help
       def help(response)
         return unless response.user.metadata["mention"]
-        response.reply_with_message "May this song help you: https://www.youtube.com/watch?v=yWP6Qki8mWc"
+        response.reply_with_mention "May this song help you: https://www.youtube.com/watch?v=yWP6Qki8mWc"
       end
 
       on :unhandled_message, :on_unhandled_message

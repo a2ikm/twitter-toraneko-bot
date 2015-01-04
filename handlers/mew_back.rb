@@ -56,7 +56,7 @@ module Lita
           せやろか
           ちゃうで
         )
-        reply response, messages.sample
+        response.reply_with_mention messages.sample
       end
 
       route /せやせや/, :seyana
@@ -66,7 +66,7 @@ module Lita
           せやろか
           ちゃうで
         )
-        reply response, messages.sample
+        response.reply_with_mention messages.sample
       end
 
       route /せやろか/, :seyaroka
@@ -76,7 +76,7 @@ module Lita
           せやせや
           ちゃうで
         )
-        reply response, messages.sample
+        response.reply_with_mention messages.sample
       end
 
       route /せやで/, :seyade
@@ -87,7 +87,7 @@ module Lita
           せやろか
           ちゃうで
         )
-        reply response, messages.sample
+        response.reply_with_mention messages.sample
       end
 
       route /せやかて/, :seyakate
@@ -97,7 +97,7 @@ module Lita
         messages = %w(
           工藤
         )
-        reply response, messages.sample
+        response.reply_with_mention messages.sample
       end
 
       route /ちゃうんちゃう/, :chauchau
@@ -107,7 +107,7 @@ module Lita
           せやせや
           せやな
         )
-        reply response, messages.sample
+        response.reply_with_mention messages.sample
       end
 
       route /ちゃうで/, :chaude

@@ -128,12 +128,6 @@ module Lita
         return unless message.user.metadata["mention"]
         message.reply_with_mention "にゃ〜ん？"
       end
-
-      private
-
-        def mention(response)
-          "@#{response.user.name}"
-        end
     end
     Lita.register_handler(MewBack)
   end

@@ -5,17 +5,17 @@ module Lita
     class MewBack < Handler
       route /にゃ[ー〜]|ニャ[ー〜]|ﾆｬ[ｰ~]|にゃん|ニャン|ﾆｬﾝ/, :mew
       def mew(response)
-        response.reply_with_mention MESSAGES["mew"].sample
+        reply response, MESSAGES["mew"].sample
       end
 
       route /可愛い|かわいい|カワイイ|ｶﾜｲｲ/, :cute_me
       def cute_me(response)
-        response.reply_with_mention MESSAGES["cute_me"].sample
+        reply response, MESSAGES["cute_me"].sample
       end
 
       route /[（(]ΦωΦ[)）]/, :angry
       def angry(response)
-        response.reply_with_mention MESSAGES["angry"].sample
+        reply response, MESSAGES["angry"].sample
       end
 
       route /なんなん/, :nyannyan
@@ -27,7 +27,7 @@ module Lita
           "娘々",
           "謝々",
         ]
-        response.reply_with_mention messages.sample
+        reply response, messages.sample
       end
 
       route /せやな/, :seyaseya
@@ -37,7 +37,7 @@ module Lita
           "せやろか",
           "ちゃうで",
         ]
-        response.reply_with_mention messages.sample
+        reply response, messages.sample
       end
 
       route /せやせや/, :seyana
@@ -47,7 +47,7 @@ module Lita
           "せやろか",
           "ちゃうで",
         ]
-        response.reply_with_mention messages.sample
+        reply response, messages.sample
       end
 
       route /せやろか/, :seyaroka
@@ -57,7 +57,7 @@ module Lita
           "せやせや",
           "ちゃうで",
         ]
-        response.reply_with_mention messages.sample
+        reply response, messages.sample
       end
 
       route /せやで/, :seyade
@@ -68,7 +68,7 @@ module Lita
           "せやろか",
           "ちゃうで",
         ]
-        response.reply_with_mention messages.sample
+        reply response, messages.sample
       end
 
       route /せやかて/, :seyakate
@@ -78,7 +78,7 @@ module Lita
         messages = [
           "工藤",
         ]
-        response.reply_with_mention messages.sample
+        reply response, messages.sample
       end
 
       route /ちゃうんちゃう/, :chauchau
@@ -88,7 +88,7 @@ module Lita
           "せやせや",
           "せやな",
         ]
-        response.reply_with_mention messages.sample
+        reply response, messages.sample
       end
 
       route /ちゃうで/, :chaude
@@ -105,7 +105,7 @@ module Lita
         messages = [
           "やれるもんならかかってきやがれ、だニャー！",
         ]
-        response.reply_with_mention messages.sample
+        reply response, messages.sample
       end
 
       route /よしよし|ヨシヨシ|ﾖｼﾖｼ|なでなで|ナデナデ|ﾅﾃﾞﾅﾃﾞ/, :curr
@@ -113,7 +113,7 @@ module Lita
         messages = [
           "ｺﾞﾛｺﾞﾛ",
         ]
-        response.reply_with_mention messages.sample
+        reply response, messages.sample
       end
 
       route /^help/, :help
@@ -128,6 +128,16 @@ module Lita
         return unless message.user.metadata["mention"]
         message.reply_with_mention "にゃ〜ん？"
       end
+
+      private
+
+        def reply(response, string)
+          if response.user.metadata["mention"]
+            response.reply_with_mention string
+          else
+            response.reply string
+          end
+        end
     end
     Lita.register_handler(MewBack)
   end
